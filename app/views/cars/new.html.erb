@@ -5,12 +5,15 @@
     	<label>Year:</label>
     	<%= v.text_field :year %>
     	<label>Make</label>
-    	<%= v.text_field :make%>
+    	<%= v.text_field :make %>
     	<label>Model</label>
-    	<%= v.text_field :model%>
+    	<%= v.text_field :model %>
     	<label>VIN</label>
-    	<%= v.text_field :vin%>
+    	<%= v.text_field :vin %>
     </div>
+    <p><label>Picture</label>
+        <%= v.file_field :picture %>    
+    </p>
 
 	<%= v.submit %>
 <% end %>

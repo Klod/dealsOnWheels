@@ -1,10 +1,9 @@
-<ul>
-<p>
-<h1>Welcome Car Owners</h1>
-</p>
-</ul>
-<% @cars.each do |v|%>
-<br><%=v.make %></br>
-<% end %>
-
 <%=link_to "List Your Car", new_car_path %>
+
+<ul>
+    <h1>Welcome Car Owners</h1>
+</ul>
+    <% @cars.each do |v|%>
+        <p><%=link_to v.make, "cars/#{v.id}" %></p>
+    <% end %>
+

@@ -1,0 +1,18 @@
+<h1>Edit Your Lot</h1>
+
+<%=form_for @car do |c| %>
+    <div>
+    	<label>Change year:</label>
+    	<%= c.text_field :year %>
+    	<label>Change make:</label>
+    	<%= c.text_field :make %>
+    	<label>Change model:</label>
+    	<%= c.text_field :model %>
+    	<label>Change VIN:</label>
+    	<%= c.text_field :vin %>
+    	<label>Attach Another picture</label>
+    	<%= c.file_field :picture%>
+    </div>
+
+	<%= c.submit %>
+<% end %>
