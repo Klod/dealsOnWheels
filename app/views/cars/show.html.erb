@@ -1,22 +1,25 @@
-<h1>Make edits lo listing</h1>
+<h1>Make edits to listing</h1>
 
 <div>
-    <%= @cars.make %>
-    <%= @cars.model %>
-    <%= @cars.vin %>
+    <%= @car.make %>
+    <%= @car.model %>
+    <%= @car.vin %>
 </div>
 
-<li><% if @cars.picture.attached? %>
-    	<%= image_tag @cars.picture, height: 300 %>
-    <% end %>    
+<li>
+    <% if @car.images.attached? %>
+        <% @car.images.each do |image|%>
+    	    <%= image_tag image, height: 300 %>
+        <% end %>
+    <% end %>
 </li>
 
-    <% if @cars.user_id == current_user.id %>
-        <%=link_to "delete", car_path(@cars),
+    <% if @car.user_id == current_user.id %>
+        <%=link_to "delete", car_path(@car),
                              method: :delete,
                              data: {confirm: "Are you sure?"} %>
                             
-        <%=link_to "edit", edit_car_path%>                    
+        <%=link_to "edit", edit_car_path(@car)%>                    
         
         <% else %>
 

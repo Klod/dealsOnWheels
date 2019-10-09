@@ -11,7 +11,7 @@
     	<label>Change VIN:</label>
     	<%= c.text_field :vin %>
     	<label>Attach Another picture</label>
-    	<%= c.file_field :picture%>
+    	<%= c.file_field :images, multiple: true, direct_upload: true%>
     </div>
 
 	<%= c.submit %>

@@ -12,7 +12,7 @@
     	<%= v.text_field :vin %>
     </div>
     <p><label>Picture</label>
-        <%= v.file_field :picture %>    
+        <%= v.file_field :images, multiple: true, direct_upload: true %> 
     </p>
 
 	<%= v.submit %>

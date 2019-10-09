@@ -3,7 +3,8 @@
 <ul>
     <h1>Welcome Car Owners</h1>
 </ul>
-    <% @cars.each do |v|%>
-        <p><%=link_to v.make, "cars/#{v.id}" %></p>
+    
+    <% @cars.each do |v| %>
+            <p><%=link_to v.make, "cars/#{v.id}" %></p>
     <% end %>
 

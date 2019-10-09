@@ -1,13 +1,17 @@
 class CarsController < ApplicationController
     def index
-        @cars = Car.all
+        if current_user.account_type == "dealer"
+            @cars = Car.all
+        else
+            @cars = current_user.cars
+        end
     end
     def new
 		@car = Car.new
 	end
 	
 	def show
-       @cars = Car.find(params[:id]) 
+       @car = Car.find(params[:id]) 
     end
     
     def destroy
@@ -38,6 +42,6 @@ class CarsController < ApplicationController
     
     private
 	def car_params
-		params.require(:car).permit(:year, :make, :model, :vin, :picture)
+		params.require(:car).permit(:year, :make, :model, :vin, images:[])
 	end
 end
