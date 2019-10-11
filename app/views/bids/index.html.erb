@@ -1,0 +1,14 @@
+<ul>
+    <h1>Current Bids</h1>
+</ul>
+    
+    <% @bids.each do |bid| %>
+            <p><%=link_to bid.bid_amount, "/cars/#{bid.car_id}/bids/#{bid.id}" %></p>
+            <p><%=bid.car_id%></p>
+            <p><%=bid.accepted%></p>
+    <% end %>
+    
+    
+    
+    
+        

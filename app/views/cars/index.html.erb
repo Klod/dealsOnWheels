@@ -1,10 +1,20 @@
 <%=link_to "List Your Car", new_car_path %>
+<div>
+    <label>Number of listings:</label>
+    <%= current_user.cars.size%>
+</div>
 
 <ul>
     <h1>Welcome Car Owners</h1>
 </ul>
     
     <% @cars.each do |v| %>
-            <p><%=link_to v.make, "cars/#{v.id}" %></p>
+        <p><%= link_to v.make, "cars/#{v.id}" %></p>
+        <p><%= image_tag v.images.first.variant(resize_to_limit: [300, 300]) if v.images.attached? %></p>
+        <label>Highest bid:</label>
+        <%= link_to v.highest_bid.bid_amount, "/cars/#{v.id}/bids/#{v.highest_bid.id}" if v.bids.present? %>
     <% end %>
+    
 
+    
+        

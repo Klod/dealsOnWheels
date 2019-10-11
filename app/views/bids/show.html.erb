@@ -1,0 +1,19 @@
+<h1>Bid detailed view</h1>
+
+<div>
+        <%= @bid.bid_amount %>
+        <%= @bid.accepted %>
+</div>
+
+<div>
+        <% if current_user.account_type == "owner" %>
+            
+            <%= form_for([@car, @bid]) do |f| %>
+            <div class="field">
+                <%= f.label "Accept" %> <br />
+                <%= f.check_box :accepted %> <br />
+    
+                <%= f.submit %>
+            <% end %>    
+        <% end %>
+</div>

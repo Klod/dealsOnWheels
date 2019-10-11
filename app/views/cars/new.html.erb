@@ -7,7 +7,7 @@
     	<label>Make</label>
     	<%= v.select :make, options_for_select(YearMakeModel.all.map(&:make).uniq) %>
     	<label>Model</label>
-    	<%= v.select :model, options_for_select(YearMakeModel.all.map(&:model).uniq) %>
+    	<%= v.select :model, options_for_select((YearMakeModel.all.map(&:model).uniq).sort) %>
     	<label>VIN</label>
     	<%= v.text_field :vin %>
     </div>

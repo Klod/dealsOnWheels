@@ -1,9 +1,19 @@
 <h1>Make edits to listing</h1>
 
 <div>
-    <%= @car.make %>
-    <%= @car.model %>
-    <%= @car.vin %>
+        <%= @car.make %>
+        <%= @car.model %>
+        <%= @car.vin %>
+</div>
+<div>
+        <% if current_user.account_type == "dealer" %>
+            <%= form_for [@car, @bid] do |b| %>
+                <label>Enter bid:</label>
+                <%= b.text_field :bid_amount %>
+    
+            <%= b.submit %> 
+            <% end %>
+        <% end %>
 </div>
 
 <li>
@@ -21,6 +31,6 @@
                             
         <%=link_to "edit", edit_car_path(@car)%>                    
         
-        <% else %>
-
-    <% end %> 
+    <% else %>
+            
+<% end %> 

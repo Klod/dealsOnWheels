@@ -2,17 +2,20 @@ class CarsController < ApplicationController
     before_action :authenticate_user!, except: [:new, :create]
     def index
         if current_user.account_type == "dealer"
-            @cars = Car.all
+            @cars = Car.all 
         else
-            @cars = current_user.cars
-        end
+           @cars = current_user.cars
+            
     end
+    end
+    
     def new
 		@car = Car.new
 	end
 	
 	def show
-       @car = Car.find(params[:id]) 
+           @car = Car.find(params[:id])
+           @bid = Bid.new
     end
     
     def destroy
@@ -28,6 +31,7 @@ class CarsController < ApplicationController
        car.user_id = user.id
        car.save
        sign_in(user, scope: :user) unless current_user
+       
        redirect_to "/"
     end
     
