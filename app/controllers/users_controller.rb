@@ -1,3 +1,3 @@
-class CarsController < ApplicationController
+class UsersController < ApplicationController
   
 end
