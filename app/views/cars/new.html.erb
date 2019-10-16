@@ -10,6 +10,8 @@
     	<%= v.select :model, options_for_select((YearMakeModel.all.map(&:model).uniq).sort) %>
     	<label>VIN</label>
     	<%= v.text_field :vin %>
+    	<label>VIN</label>
+    	<%= v.text_field :odometer %>
     </div>
     <p><label>Picture</label>
         <%= v.file_field :images, multiple: true, direct_upload: true %> 

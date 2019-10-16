@@ -1,35 +1,28 @@
-
 <%=link_to "List Your Car", new_car_path %>
-<div>
-    <label>Number of listings:</label>
-    <%= current_user.cars.size%>
-</div>
-
 <ul>
     <h1>Welcome Car Owners</h1>
 </ul>
-    
-    <% @cars.each do |v| %>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm">
-        <div class="card" style="width: 18rem;">
-        </div>
+   
+        <% @cars.each do |v| %>
+       <div class="card mb-5 border-dark ml-3" style="width: 25rem; height: 30rem;">
+        <ul></ul>
           <%= image_tag v.images.first.variant(resize_to_limit: [300, 300]) if v.images.attached? %>
-          <div class="card-body">
-            <h5 class="card-title"><%= link_to v.make, "cars/#{v.id}" %></h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-    </div>
-  </div>
-</div>
-        
-   
-        <label>Highest bid:</label>
-        <%= link_to v.highest_bid.bid_amount, "/cars/#{v.id}/bids/#{v.highest_bid.id}" if v.bids.present? %>
-    <% end %>
+            <div class="card-body">
+                <h5 class="card-title"><%= link_to v.make, "/cars/#{v.id}" %></h5>
+              <p class="card-text"><%= v.condition %></p>
+              <%= button_to 'Highest Bids', "/cars/#{v.id}/bids/#{v.highest_bid.id}" %>
+              <label><%= v.highest_bid.bid_amount if v.bids.present? %></label>
+            </div>
+            </div>
+        <% end %>
+      
+    
+        
+    
+
+
+    
+
     
 
     
